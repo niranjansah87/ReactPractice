@@ -1,4 +1,4 @@
-import React from 'react'
+import React   from 'react'
 export default function Forms() {
     // const [text, setText] = useState('Enter text here');
     const handleSubmit=()=>{
