@@ -1,6 +1,9 @@
 function AppName() {
     return(
-        <h1 style={{textAlign:"center"}}>TODO LIST</h1>
+        <>
+        <div className="kg-row">
+        <div className="container"><h1>TODO LIST</h1></div></div>
+        </> 
     )
     
 }
