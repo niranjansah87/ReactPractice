@@ -5,7 +5,7 @@ import ButtonContainer from './components/ButtonContainer'
 import { useState } from 'react';
 
 function App() {
-  let [calval,setcalval] = useState("45")
+  const [calval,setcalval] = useState("45")
 
   const onButtonClick = (buttonText) => {
     if (buttonText === "C") {
