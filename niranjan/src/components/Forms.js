@@ -13,6 +13,11 @@ export default function Forms() {
         setText(newText);
         alert('Form Submitted');
     }
+    const handleClearText = () => {
+        let newText = text.replaceAll(text,'');
+        setText(newText);
+        alert('Form Submitted');
+    }
     const handleOnChange = (event) => {
         setText(event.target.value);
     }
@@ -27,6 +32,7 @@ export default function Forms() {
 
                 <button className="btn btn-primary" onClick={handleSubmit}>Convert to UpperCase</button>
                 <button className="btn btn-primary mx-2" onClick={handleSubmit2}>Convert to Lowercase</button>
+                <button className="btn btn-primary mx-2" onClick={handleClearText}>Clear text</button>
             </div>
             <div className="container my-2">
             <h1>Your Text summary</h1>
