@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function About() {
-    const [state, setstate] = useState({document.body.style.backgroundColor = 'white';
-    document.body.style.color = 'black';})
     const DarkMode = () => {
         document.body.style.backgroundColor = 'black';
         document.body.style.color = 'white';
