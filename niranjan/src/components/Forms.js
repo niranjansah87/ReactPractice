@@ -5,7 +5,7 @@ export default function Forms() {
     const handleSubmit = () => {
         let newText = text.toUpperCase();
         setText(newText);
-        // alert('Form Submitted');
+        alert('Form Submitted');
     }
     const handleSubmit2 = () => {
         let newText = text.toLowerCase();
