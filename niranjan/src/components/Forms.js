@@ -1,7 +1,7 @@
 // import React   from 'react'
 import React, { useState } from 'react';
 export default function Forms() {
-    // const [text, setText] = useState('Enter text here');
+    const [text, setText] = useState('Enter text here');
     const handleSubmit = () => {
         let newText = text.toUpperCase();
         setText(newText);
@@ -21,7 +21,12 @@ export default function Forms() {
     const handleOnChange = (event) => {
         setText(event.target.value);
     }
-    const [text, setText] = useState('');
+    const handleCopy = () => {
+        let text = document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+   
     return (
         <>
             <div className="container">
@@ -33,7 +38,9 @@ export default function Forms() {
                 <button className="btn btn-primary" onClick={handleSubmit}>Convert to UpperCase</button>
                 <button className="btn btn-primary mx-2" onClick={handleSubmit2}>Convert to Lowercase</button>
                 <button className="btn btn-primary mx-2" onClick={handleClearText}>Clear text</button>
+                <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy text</button>
             </div>
+            
             <div className="container my-2">
             <h1>Your Text summary</h1>
             <p>{text.split(" ").length} words and {text.length} characters</p>
