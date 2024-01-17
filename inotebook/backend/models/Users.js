@@ -25,20 +25,20 @@ const UserSchema = new Schema({
 
 
 const User = mongoose.model('User', UserSchema);
-
+User.createIndexes();
 // Create a new user instance
-const newUser = new User({
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  password: 'securepassword',
-});
+// const newUser = new User({
+//   name: 'John Doe',
+//   email: 'john.doe@example.com',
+//   password: 'securepassword',
+// });
 
-// Save the user to the database
-newUser.save()
-  .then((savedUser) => {
-    console.log('User saved successfully:', savedUser);
-  })
-  .catch((error) => {
-    console.error('Error saving user:', error.message);
-  });
-module.exports = mongoose.model('User', UserSchema);
+// // Save the user to the database
+// newUser.save()
+//   .then((savedUser) => {
+//     console.log('User saved successfully:', savedUser);
+//   })
+//   .catch((error) => {
+//     console.error('Error saving user:', error.message);
+//   });
+module.exports = User;
