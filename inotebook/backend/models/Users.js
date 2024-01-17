@@ -25,7 +25,7 @@ const UserSchema = new Schema({
 
 
 const User = mongoose.model('User', UserSchema);
-User.createIndexes();
+// User.createIndexes();
 // Create a new user instance
 // const newUser = new User({
 //   name: 'John Doe',
