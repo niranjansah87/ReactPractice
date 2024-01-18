@@ -11,10 +11,6 @@ router.get('/fetchallnotes',fetchuser, async (req, res) => {
     const notes = await Notes.find({user:req.user.id});
     res.json(notes)
 });
-
-
-
-
 //Route2:Add a new note:POST "/api/auth/addnote".Login required
 router.post('/addnote',fetchuser,[
     check('title','Enter a valid title').isLength({min:3}),
