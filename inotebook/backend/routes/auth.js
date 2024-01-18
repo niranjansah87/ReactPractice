@@ -3,6 +3,8 @@ const router = express.Router();
 const User = require('../models/Users');
 const { body, validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+const JWT_SECRET = 'Niranjanisagoodb$oy';
 //Create a User using: POST "/auth/"
 // router.post('/', [
 //     body('name', 'Enter a valid name').isLength({ min: 5 }),
@@ -59,7 +61,17 @@ router.post('/', [
 
         // user creation
         user = await User.create({ name: req.body.name, email: req.body.email, password: secPass });
-        res.json(user);  // <-- Fixed: response should be the created user, not the User model
+        const data = {
+            user: {
+              id: user.id
+            }
+          }
+          const authtoken = jwt.sign(data, JWT_SECRET);
+      
+      
+          // res.json(user)
+          res.json({ authtoken })
+        // res.json(user);  // <-- Fixed: response should be the created user, not the User model
     } catch (err) {
         console.error(err);
         res.status(500).send("Some Error Occurred");
