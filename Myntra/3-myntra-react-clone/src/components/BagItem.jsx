@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { bagActions } from "../store/bagSlice";
+import PropTypes from "prop-types";
 
 const BagItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const BagItem = ({ item }) => {
   return (
     <div className="bag-item-container">
       <div className="item-left-part">
-        <img className="bag-item-img" src={item.image} />
+        <img className="bag-item-img" src={item.image} alt={item.item_name} />
       </div>
       <div className="item-right-part">
         <div className="company">{item.company}</div>
@@ -39,6 +40,20 @@ const BagItem = ({ item }) => {
       </div>
     </div>
   );
+};
+
+BagItem.propTypes = {
+  item: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    item_name: PropTypes.string.isRequired,
+    current_price: PropTypes.number.isRequired,
+    original_price: PropTypes.number.isRequired,
+    discount_percentage: PropTypes.number.isRequired,
+    return_period: PropTypes.number.isRequired,
+    delivery_date: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired, // Assuming item id is a string, adjust if necessary
+  }).isRequired,
 };
 
 export default BagItem;
